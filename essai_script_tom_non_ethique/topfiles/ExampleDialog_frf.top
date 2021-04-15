@@ -1,0 +1,25 @@
+topic: ~ExampleDialog()
+language: frf
+
+# Defining extra concepts out of words or group of words
+concept:(hello) [hello bonjour "ca va"]
+
+# Catching inputs and triggering outputs
+#u:(e:onStart) $onStopped=1
+
+# Replying to speech
+u:(~hello) ~hello
+u:("CPE Lyon") Je n'aime pas les élèves de CPE Lyon $cpeshow=1
+u:("Jouer") Papier, cailloux, ciseaux $test=1
+u:("Dit moi une blague") Tu veux une blague ? Pourquoi les mexicains aiment manger aux toilettes ? Parce qu'il aiments mangé épicé ! $yeah=1
+
+
+u:(e:LeftBumperPressed) Arrete de me toucher ou je te balaye !
+u:(e:RightBumperPressed) Tu ne tiens pas a ta vie ?
+u:(e:BackBumperPressed) Arrete de me prendre dans le dos !
+
+u: ([e:FrontTactilTouched e:MiddleTactilTouched e:RearTactilTouched]) Tu aimes bien toucher ma tête ?
+    u1:("Oui") Très bien, mais ne me touche pas autre part.
+    u1:("Non") Bah arrete alors.
+
+u:("Que sais-tu faire ?") Comme toi, je ne sais pas faire grand chose.
